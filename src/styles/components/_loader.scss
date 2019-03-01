@@ -1,0 +1,13 @@
+$size: 40px;
+$borderColor: #0051DB;
+
+.loader {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    border: 3px solid transparent;
+    border-top-color: $borderColor;
+    border-bottom-color: $borderColor;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>vue-auth-test-app</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue-auth-test-app">
+
+    <% for (var chunk of webpack.chunks) {
+        for (var file of chunk.files) {
+            if (file.match(/\.(js|css)$/)) { %>
+    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+    <% }}} %>
+</head>
+<body>
+    <noscript>В вашем браузере выключен JavaScript. Включите его, чтобы наяать пользоваться сайтом.</noscript>
+
+    <div id="app"></div>
+
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+</body>
+</html>
